@@ -1,0 +1,13 @@
+# https://www.codewars.com/kata/56f78a42f749ba513b00037f
+
+
+from itertools import product
+
+def rolldice_sum_prob(sum_, dice_amount):
+    n = 6 ** dice_amount
+    outcomes = [i for i in list(product(range(1, 7), repeat = dice_amount)) if sum(i) == sum_]
+    m = len(outcomes)
+    prob = m/n
+    if sum_ > n:
+        return (0)
+    return (prob)

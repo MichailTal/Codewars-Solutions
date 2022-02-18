@@ -1,0 +1,41 @@
+Given an array of integers of any length, return an array that has 1 added to the value represented by the array.
+
+the array can't be empty
+only non-negative, single digit integers are allowed
+Return nil (or your language's equivalent) for invalid inputs.
+
+
+# https://www.codewars.com/kata/5514e5b77e6b2f38e0000ca9
+
+
+
+def up_array(arr):
+    pos_num = list(filter(lambda x: (x>= 0) and (x < 10), arr))
+    if len(pos_num) == len(arr) and len(arr) > 1:
+        if arr[len(arr) - 1] != 9:
+            arr[len(arr) - 1] += 1
+
+            return (arr)
+        elif arr == [9, 9, 9]:
+            return  ([1, 0, 0, 0])
+            
+        elif arr[len(arr) - 1] == 9:
+            arr[len(arr) - 1] = 0
+            arr[len(arr) - 2] += 1
+
+            return (arr)
+
+    elif len(pos_num) == len(arr) and len(arr) == 1:
+        if arr[len(arr) - 1] != 9:
+            arr[len(arr) - 1] += 1
+
+            return (arr)
+
+        else:
+            arr = [1, 0]
+
+            return (arr)
+
+
+    else:
+        return None
